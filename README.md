@@ -1,48 +1,56 @@
 # E-Commerce Revenue Leakage & Retention Analysis
 
-## 📌 Project Overview
-This project investigates key operational inefficiencies for an e-commerce platform, specifically focusing on customer retention mechanics ("The Leaky Bucket") and promotional code vulnerabilities ("Coupon Cannibalization"). Using a hybrid workflow of Python for data engineering and Power BI for executive dashboard design, this analysis uncovers critical vulnerabilities costing the business over $271K in lost revenue.
+# E-Commerce Customer Retention & Revenue Analysis
 
-## 🛠️ Tech Stack & Skills
-* **Data Engineering & Cleaning:** Python (Pandas)
-* **Data Visualization:** Power BI Desktop
-* **Analytics Frameworks:** Cohort Segmentation, Revenue Validation Logic, Filter Contexts
+## Project Overview
 
----
+This project analyzes an e-commerce platform to understand why customers don’t return and where revenue is being lost. The analysis uncovered two critical business problems — a severe customer retention issue and significant revenue loss from a specific promotional code.
 
-## 🔍 Key Findings & Business Insights
+## Tools Used
 
-### 1. The "Leaky Bucket" Retention Crisis
-* **Metric:** 98.17% One-Time Buyers vs. 1.83% Repeat Customers.
-* **Strategic Insight:** The business suffers from a severe retention deficit. Growth is entirely dependent on continuous, high-cost customer acquisition. Without an immediate post-purchase re-engagement or loyalty strategy, marketing spend is being heavily diluted.
+- Python (Pandas) — data cleaning and feature engineering
+- Power BI — dashboard and visualization
+- Dataset: E-commerce transaction records
 
-### 2. Coupon Cannibalization & Revenue Leakage
-* **Metric:** Gross Revenue ($1.26M) vs. Valid Revenue ($988.37K) — a loss of **$271.63K**.
-* **Strategic Insight:** Massive transactional volume is being tied up in orders that ultimately face cancellation. 
-* **The "Smoking Gun":** The `WINTER15` promotional code is heavily correlated with these cancelled orders, indicating either a technical glitch in the checkout funnel, drop-shipper exploitation, or highly non-committal consumer behavior triggered by the discount.
+## Business Question
 
----
+Why are customers not returning and where is revenue being lost?
 
-## 📊 Dashboard Preview
-![Executive Dashboard](PBIscreenshot.png)
+## Data Cleaning & Engineering
 
----
+- Created customer order count per unique user
+- Segmented customers into One-Time Buyers vs Repeat Customers
+- Flagged valid vs cancelled transactions to isolate actual revenue
 
-## 🛠️ Methodology & Implementation
+## Key Findings
 
-### Phase 1: Python Data Engineering
-Using Python, the raw e-commerce transactional data was processed to engineer custom business logic fields:
-* `UserLifetimeOrders`: Aggregated order counts per unique customer.
-* `CustomerSegment`: Conditional logic separating users into `One-Time Buyer` or `Repeat Customer`.
-* `IsRevenueValid`: A boolean flag mapping valid transactional statuses vs. cancellations to isolate actual retained cash.
+**Finding 1 — Customer Retention Crisis:**
 
-### Phase 2: Power BI Visualization
-* Constructed a high-density, executive-ready dashboard utilizing a clean grid hierarchy.
-* Eliminated default visual clutter (removing redundant legends and moving detail labels inline) to maximize data readability.
-* Implemented unified "signal colors" (Coral/Red for leakage metrics, Navy/Teal for health metrics) to streamline visual processing for stakeholder decision-making.
+- 98.17% of customers never returned after their first purchase
+- Only 1.83% made repeat purchases
+- Business growth depends entirely on expensive new customer acquisition
 
----
+**Finding 2 — Revenue Loss:**
 
-## 🚀 Actionable Recommendations
-1. **Promotional Policy Audit:** Restrict or temporarily suspend the `WINTER15` coupon code to investigate the root cause of its high cancellation rate.
-2. **Retention Funnel Implementation:** Shift a percentage of the customer acquisition budget toward email remarketing and automated loyalty incentives targeting first-time buyers within 14 days of their initial purchase.
+|Metric                 |Amount    |
+|-----------------------|----------|
+|Gross Revenue          |$1,260,000|
+|Actual Retained Revenue|$988,370  |
+|Lost Revenue           |$271,630  |
+
+- WINTER15 promotional code showed unusually high correlation with cancelled orders
+- Likely caused by discount-driven non-committal purchasing behavior
+
+## Business Recommendations
+
+1. Temporarily suspend WINTER15 coupon code and investigate cancellation pattern
+1. Implement email follow-up sequence targeting first-time buyers within 14 days of purchase — converting even 5% to repeat customers would significantly reduce acquisition costs
+1. Shift portion of acquisition budget toward retention marketing
+
+## Dashboard
+
+![Dashboard](PBIscreenshot.png)
+
+## Dataset Source
+
+Kaggle — E-commerce transactions dataset
