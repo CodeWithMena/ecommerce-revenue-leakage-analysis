@@ -1,6 +1,6 @@
 # E-Commerce Revenue Leakage & Retention Analysis
 
-# E-Commerce Customer Retention & Revenue Analysis
+
 
 ## Project Overview
 
