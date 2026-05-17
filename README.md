@@ -49,7 +49,7 @@ Why are customers not returning and where is revenue being lost?
 
 ## Dashboard
 
-![Dashboard](PBIscreenshot.png)
+# (Dashboard.png)
 
 ## Dataset Source
 
