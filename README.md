@@ -49,7 +49,7 @@ Why are customers not returning and where is revenue being lost?
 
 ## Dashboard
 
-# Dashboard.png 
+![Dashboard](Dashboard.png) 
 
 ## Dataset Source
 
